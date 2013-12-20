@@ -1,11 +1,14 @@
 package net.tymoshuk.testautomation;
 
-import org.openqa.selenium.By;
+import net.tymoshuk.testautomation.utils.Driver;
+
+import java.util.logging.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriverBackedSelenium;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.thoughtworks.selenium.Selenium;
 
 /**
  * Hello world!
@@ -13,44 +16,38 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class App 
 {
+    private static Logger log = Logger.getLogger(App.class.getName());
+
     public static void main( String[] args )
     {
-        // Create a new instance of the Firefox driver
-        // Notice that the remainder of the code relies on the interface,
-        // not the implementation.
-        WebDriver driver = new FirefoxDriver();
+        log.info("Starting application");
 
-        // And now use this to visit Google
-        driver.get("http://www.google.com");
-        // Alternatively the same thing can be done like this
-        // driver.navigate().to("http://www.google.com");
+        final String baseUrl = "http://www.google.com";
 
-        // Find the text input element by its name
-        WebElement element = driver.findElement(By.name("q"));
-
-        // Enter something to search for
-        element.sendKeys("Cheese!");
-
-        // Now submit the form. WebDriver will find the form for us from the element
-        element.submit();
-
-        // Check the title of the page
-        System.out.println("Page title is: " + driver.getTitle());
-
-        // Google's search is rendered dynamically with JavaScript.
-        // Wait for the page to load, timeout after 10 seconds
-        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>()
+        for (final Driver driver : Driver.values())
         {
-            public Boolean apply(WebDriver d)
+            log.info("Proceeding with driver ".concat(driver.getName()));
+
+            final Selenium selenium = new WebDriverBackedSelenium(driver.createWebDriver(), baseUrl);
+
+            selenium.open(baseUrl);
+            selenium.type("name=q", "cheese");
+            selenium.click("name=btnG");
+
+            (new WebDriverWait(((WebDriverBackedSelenium) selenium).getWrappedDriver(), 10)).until(new ExpectedCondition<Boolean>()
             {
-                return d.getTitle().toLowerCase().startsWith("cheese!");
-            }
-        });
+                @Override
+                public Boolean apply(final WebDriver webDriver)
+                {
+                    return webDriver.getTitle().toLowerCase().startsWith("cheese");
+                }
+            });
 
-        // Should see: "cheese! - Google Search"
-        System.out.println("Page title is: " + driver.getTitle());
+            log.info("Closing browser ".concat(driver.getName()));
 
-        //Close the br
-        driver.quit();
+            selenium.stop();
+        }
+
+        log.info("Finishing application");
     }
 }
