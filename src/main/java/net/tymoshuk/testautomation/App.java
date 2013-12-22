@@ -1,12 +1,12 @@
 package net.tymoshuk.testautomation;
 
+import net.tymoshuk.testautomation.pages.DashboardPage;
+import net.tymoshuk.testautomation.pages.login.LoginPage;
 import net.tymoshuk.testautomation.utils.Driver;
+import net.tymoshuk.testautomation.utils.User;
 
 import java.util.logging.Logger;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverBackedSelenium;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.thoughtworks.selenium.Selenium;
 
@@ -22,7 +22,7 @@ public class App
     {
         log.info("Starting application");
 
-        final String baseUrl = "http://www.google.com";
+        final String baseUrl = "http://localhost/wordpress/";
 
         for (final Driver driver : Driver.values())
         {
@@ -30,18 +30,22 @@ public class App
 
             final Selenium selenium = new WebDriverBackedSelenium(driver.createWebDriver(), baseUrl);
 
-            selenium.open(baseUrl);
-            selenium.type("name=q", "cheese");
-            selenium.click("name=btnG");
+            LoginPage loginPage = new LoginPage(selenium)
+            {{
+                this.visit();
+            }};
 
-            (new WebDriverWait(((WebDriverBackedSelenium) selenium).getWrappedDriver(), 10)).until(new ExpectedCondition<Boolean>()
-            {
-                @Override
-                public Boolean apply(final WebDriver webDriver)
-                {
-                    return webDriver.getTitle().toLowerCase().startsWith("cheese");
-                }
-            });
+            assert loginPage.isActive();
+
+            User user = new User()
+            {{
+                this.setUsername("rtym");
+                this.setPassword("rtym");
+            }};
+
+            DashboardPage dashboardPage = loginPage.loginWithCorrectCredentials(user, true);
+
+            assert dashboardPage.isActive();
 
             log.info("Closing browser ".concat(driver.getName()));
 
