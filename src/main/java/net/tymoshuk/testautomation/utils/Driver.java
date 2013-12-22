@@ -7,11 +7,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import com.opera.core.systems.OperaDriver;
 
 /**
- * Created with IntelliJ IDEA.
- * User: roman
- * Date: 20.12.13
- * Time: 19:37
- * To change this template use File | Settings | File Templates.
+ * Support browser drivers.
+ *
+ * @author roman@tymoshuk.net
  */
 public enum Driver
 {

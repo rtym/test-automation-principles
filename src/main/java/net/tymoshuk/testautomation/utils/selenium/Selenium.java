@@ -5,11 +5,9 @@ import net.tymoshuk.testautomation.utils.locators.Locatable;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Created with IntelliJ IDEA.
- * User: roman
- * Date: 22.12.13
- * Time: 20:02
- * To change this template use File | Settings | File Templates.
+ * Custom Selenium interface.
+ *
+ * @author roman.tymoshuk.net
  */
 public interface Selenium extends com.thoughtworks.selenium.Selenium
 {

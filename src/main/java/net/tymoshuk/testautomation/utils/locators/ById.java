@@ -3,14 +3,15 @@ package net.tymoshuk.testautomation.utils.locators;
 import org.openqa.selenium.By;
 
 /**
- * Created with IntelliJ IDEA.
- * User: roman
- * Date: 22.12.13
- * Time: 19:47
- * To change this template use File | Settings | File Templates.
+ * Locator for items defined by id.
+ *
+ * @author roman@tymoshuk.net
  */
 public class ById extends By.ById implements Locatable
 {
+    /**
+     * ID.
+     */
     private String id;
 
     public ById(final String id)

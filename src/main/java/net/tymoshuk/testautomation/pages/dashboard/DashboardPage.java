@@ -6,16 +6,14 @@ import net.tymoshuk.testautomation.utils.locators.By;
 import net.tymoshuk.testautomation.utils.selenium.Selenium;
 
 /**
- * Created with IntelliJ IDEA.
- * User: roman
- * Date: 20.12.13
- * Time: 21:28
- * To change this template use File | Settings | File Templates.
+ * Dashboard page.
+ *
+ * @author roman@tymoshuk.net
  */
 public class DashboardPage extends Page
 {
     //TODO: Remove this hardcode
-    private static final String PAGE_URL = "http://localhost/wordpress/wp-admin";
+    private static final String PAGE_URL = "http://localhost/wordpress/wp-admin/";
 
     public DashboardPage(final Selenium selenium)
     {

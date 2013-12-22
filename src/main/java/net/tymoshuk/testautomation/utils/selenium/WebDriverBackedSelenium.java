@@ -3,14 +3,11 @@ package net.tymoshuk.testautomation.utils.selenium;
 import net.tymoshuk.testautomation.utils.locators.Locatable;
 
 import org.openqa.selenium.WebDriver;
-import com.google.common.base.Supplier;
 
 /**
- * Created with IntelliJ IDEA.
- * User: roman
- * Date: 22.12.13
- * Time: 20:04
- * To change this template use File | Settings | File Templates.
+ * Default system-wide selenium.
+ *
+ * @author roman@tymoshuk.net
  */
 public class WebDriverBackedSelenium extends org.openqa.selenium.WebDriverBackedSelenium implements Selenium
 {

@@ -8,37 +8,41 @@ import net.tymoshuk.testautomation.utils.selenium.Selenium;
 
 
 /**
- * Created with IntelliJ IDEA.
- * User: roman
- * Date: 20.12.13
- * Time: 21:06
- * To change this template use File | Settings | File Templates.
+ * Login page.
+ *
+ * @author roman@tymoshuk.net
  */
 public class LoginPage extends Page
 {
-    //TODO: Remove this hardcode
     private static final String PAGE_URL = "http://localhost/wordpress/wp-login.php";
 
+    /**
+     * Constructor.
+     *
+     * @param selenium
+     *          selenium
+     */
     public LoginPage(final Selenium selenium)
     {
         super(selenium);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void visit()
     {
         this.getSelenium().open(PAGE_URL);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isActive()
     {
         return this.getSelenium().getLocation().equals(PAGE_URL);
-    }
-
-    public void login(final User user)
-    {
-        this.login(user, false);
     }
 
     public void login(final User user, final boolean rememberMe)
