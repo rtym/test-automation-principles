@@ -1,9 +1,9 @@
-package net.tymoshuk.testautomation.pages;
+package net.tymoshuk.testautomation.pages.dashboard;
 
+import net.tymoshuk.testautomation.pages.Page;
 import net.tymoshuk.testautomation.pages.login.LoginPage;
-
-import org.openqa.selenium.By;
-import com.thoughtworks.selenium.Selenium;
+import net.tymoshuk.testautomation.utils.locators.By;
+import net.tymoshuk.testautomation.utils.selenium.Selenium;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,7 +17,7 @@ public class DashboardPage extends Page
     //TODO: Remove this hardcode
     private static final String PAGE_URL = "http://localhost/wordpress/wp-admin";
 
-    public DashboardPage(Selenium selenium)
+    public DashboardPage(final Selenium selenium)
     {
         super(selenium);
     }
@@ -36,7 +36,7 @@ public class DashboardPage extends Page
 
     public LoginPage logout()
     {
-        this.getSelenium().click(By.id("wp-admin-bar-logout").toString());
+        this.getSelenium().click(By.id("wp-admin-bar-logout"));
 
         return new LoginPage(this.getSelenium());
     }

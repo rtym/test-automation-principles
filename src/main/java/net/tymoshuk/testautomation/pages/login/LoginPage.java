@@ -1,10 +1,11 @@
 package net.tymoshuk.testautomation.pages.login;
 
-import net.tymoshuk.testautomation.pages.DashboardPage;
+import net.tymoshuk.testautomation.pages.dashboard.DashboardPage;
 import net.tymoshuk.testautomation.pages.Page;
 import net.tymoshuk.testautomation.utils.User;
+import net.tymoshuk.testautomation.utils.locators.By;
+import net.tymoshuk.testautomation.utils.selenium.Selenium;
 
-import com.thoughtworks.selenium.Selenium;
 
 /**
  * Created with IntelliJ IDEA.
@@ -44,11 +45,11 @@ public class LoginPage extends Page
     {
         if (rememberMe)
         {
-            this.getSelenium().check("id=rememberme");
+            this.getSelenium().check(By.id("rememberme"));
         }
 
-        this.getSelenium().type("id=user_login", user.getUsername());
-        this.getSelenium().type("id=user_pass", user.getPassword());
+        this.getSelenium().type(By.id("user_login"), user.getUsername());
+        this.getSelenium().type(By.id("user_pass"), user.getPassword());
         this.submit();
     }
 
@@ -68,6 +69,6 @@ public class LoginPage extends Page
 
     protected void submit()
     {
-        this.getSelenium().click("id=wp-submit");
+        this.getSelenium().click(By.id("wp-submit"));
     }
 }

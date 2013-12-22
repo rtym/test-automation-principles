@@ -1,6 +1,6 @@
 package net.tymoshuk.testautomation.pages;
 
-import com.thoughtworks.selenium.Selenium;
+import net.tymoshuk.testautomation.utils.selenium.Selenium;
 
 /**
  * Created with IntelliJ IDEA.

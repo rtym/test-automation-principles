@@ -1,6 +1,6 @@
 package net.tymoshuk.testautomation.utils;
 
-import org.openqa.selenium.WebDriver;
+import com.thoughtworks.selenium.Selenium;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,27 +13,27 @@ public enum Session
 {
     INSTANCE;
 
-    private WebDriver driver;
+    private Selenium selenium;
 
     /**
-     * Gets' web driver.
+     * Gets' selenium driver.
      *
      * @return
-     *      web driver
+     *      selenium driver
      */
-    public WebDriver getDriver()
+    public Selenium getSelenium()
     {
-        return this.driver;
+        return this.selenium;
     }
 
     /**
-     * Sets' web driver.
+     * Sets' selenium driver.
      *
-     * @param driver
-     *          web driver
+     * @param selenium
+     *          selenium driver
      */
-    public void setDriver(final WebDriver driver)
+    public void setDriver(final Selenium selenium)
     {
-        this.driver = driver;
+        this.selenium = selenium;
     }
 }

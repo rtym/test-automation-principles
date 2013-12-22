@@ -1,14 +1,13 @@
 package net.tymoshuk.testautomation;
 
-import net.tymoshuk.testautomation.pages.DashboardPage;
+import net.tymoshuk.testautomation.pages.dashboard.DashboardPage;
 import net.tymoshuk.testautomation.pages.login.LoginPage;
 import net.tymoshuk.testautomation.utils.Driver;
 import net.tymoshuk.testautomation.utils.User;
+import net.tymoshuk.testautomation.utils.selenium.Selenium;
+import net.tymoshuk.testautomation.utils.selenium.WebDriverBackedSelenium;
 
 import java.util.logging.Logger;
-import org.openqa.selenium.WebDriverBackedSelenium;
-
-import com.thoughtworks.selenium.Selenium;
 
 /**
  * Hello world!
