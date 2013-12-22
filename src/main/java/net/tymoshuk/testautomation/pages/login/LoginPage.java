@@ -2,6 +2,7 @@ package net.tymoshuk.testautomation.pages.login;
 
 import net.tymoshuk.testautomation.pages.dashboard.DashboardPage;
 import net.tymoshuk.testautomation.pages.Page;
+import net.tymoshuk.testautomation.utils.Session;
 import net.tymoshuk.testautomation.utils.User;
 import net.tymoshuk.testautomation.utils.locators.By;
 import net.tymoshuk.testautomation.utils.selenium.Selenium;
@@ -14,7 +15,7 @@ import net.tymoshuk.testautomation.utils.selenium.Selenium;
  */
 public class LoginPage extends Page
 {
-    private static final String PAGE_URL = "http://localhost/wordpress/wp-login.php";
+    private static final String PAGE = "wp-login.php";
 
     /**
      * Constructor.
@@ -33,7 +34,7 @@ public class LoginPage extends Page
     @Override
     public void visit()
     {
-        this.getSelenium().open(PAGE_URL);
+        this.getSelenium().open(this.getSelenium().getBaseURL().concat(PAGE));
     }
 
     /**
@@ -42,7 +43,7 @@ public class LoginPage extends Page
     @Override
     public boolean isActive()
     {
-        return this.getSelenium().getLocation().equals(PAGE_URL);
+        return this.getSelenium().getLocation().equals(this.getSelenium().getBaseURL().concat(PAGE));
     }
 
     public void login(final User user, final boolean rememberMe)

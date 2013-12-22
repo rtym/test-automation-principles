@@ -17,6 +17,11 @@ public class WebDriverBackedSelenium extends org.openqa.selenium.WebDriverBacked
     private WebDriver webDriver;
 
     /**
+     * Base URL.
+     */
+    private String baseURL;
+
+    /**
      * Constructor.
      *
      * @param baseDriver
@@ -27,6 +32,7 @@ public class WebDriverBackedSelenium extends org.openqa.selenium.WebDriverBacked
         super(baseDriver, baseUrl);
 
         this.webDriver = baseDriver;
+        this.baseURL = baseUrl;
     }
 
     /**
@@ -54,6 +60,15 @@ public class WebDriverBackedSelenium extends org.openqa.selenium.WebDriverBacked
     public void type(final Locatable locator, final String value)
     {
         super.type(locator.getLocator(), value);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String getBaseURL()
+    {
+        return this.baseURL;
     }
 
     /**

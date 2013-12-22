@@ -12,24 +12,35 @@ import net.tymoshuk.testautomation.utils.selenium.Selenium;
  */
 public class DashboardPage extends Page
 {
-    //TODO: Remove this hardcode
-    private static final String PAGE_URL = "http://localhost/wordpress/wp-admin/";
+    private static final String PAGE = "wp-admin/";
 
+    /**
+     * Constructor.
+     *
+     * @param selenium
+     *          selenium
+     */
     public DashboardPage(final Selenium selenium)
     {
         super(selenium);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void visit()
     {
-        this.getSelenium().open(PAGE_URL);
+        this.getSelenium().open(this.getSelenium().getBaseURL().concat(PAGE));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isActive()
     {
-        return this.getSelenium().getLocation().equals(PAGE_URL);
+        return this.getSelenium().getLocation().equals(this.getSelenium().getBaseURL().concat(PAGE));
     }
 
     public LoginPage logout()

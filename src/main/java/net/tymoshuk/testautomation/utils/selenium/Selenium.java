@@ -40,6 +40,13 @@ public interface Selenium extends com.thoughtworks.selenium.Selenium
     void type(final Locatable locator, final String value);
 
     /**
+     * Gets' base URL.
+     *
+     * @return
+     */
+    public String getBaseURL();
+
+    /**
      * Gets' current web driver.
      *
      * @return

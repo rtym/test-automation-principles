@@ -2,6 +2,8 @@ package net.tymoshuk.testautomation.utils;
 
 import net.tymoshuk.testautomation.utils.selenium.Selenium;
 
+import java.net.URL;
+
 /**
  * Container singleton for session-wide parameters.
  *
@@ -11,6 +13,9 @@ public enum Session
 {
     INSTANCE;
 
+    /**
+     * Selenium.
+     */
     private Selenium selenium;
 
     /**

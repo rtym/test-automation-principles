@@ -19,17 +19,11 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({LoginPageTest.class})
 @Ignore
-public class OperaTestSuite
+public class OperaTestSuite extends BaseTestSuite
 {
     @BeforeClass
     public static void initialize()
     {
-        Session.INSTANCE.setSelenium(new WebDriverBackedSelenium(Driver.OPERA.createWebDriver(), "http://localhost/wordpress/"));
-    }
-
-    @AfterClass
-    public static void deinitialize()
-    {
-        Session.INSTANCE.getSelenium().stop();
+        initialize(Driver.OPERA);
     }
 }

@@ -17,17 +17,11 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({LoginPageTest.class})
-public class FirefoxTestSuite
+public class FirefoxTestSuite extends BaseTestSuite
 {
     @BeforeClass
     public static void initialize()
     {
-        Session.INSTANCE.setSelenium(new WebDriverBackedSelenium(Driver.FIREFOX.createWebDriver(), "http://localhost/wordpress/"));
-    }
-
-    @AfterClass
-    public static void deinitialize()
-    {
-        Session.INSTANCE.getSelenium().stop();
+       initialize(Driver.FIREFOX);
     }
 }
