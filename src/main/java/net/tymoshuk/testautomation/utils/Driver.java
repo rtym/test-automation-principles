@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.opera.core.systems.OperaDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 /**
  * Support browser drivers.
@@ -31,17 +32,32 @@ public enum Driver
     /**
      * Chrome default driver.
      */
-    // CHROME
-    // {
-    //     /**
-    //      * {@inheritDoc}
-    //      */
-    //     @Override
-    //     public WebDriver createWebDriver()
-    //     {
-    //         return new ChromeDriver();
-    //     }
-    // };
+    CHROME
+    {
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public WebDriver createWebDriver()
+        {
+            return new ChromeDriver();
+        }
+    },
+
+    /**
+     * IE default driver.
+     */
+    IE
+    {
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public WebDriver createWebDriver()
+        {
+            return new InternetExplorerDriver();
+        }
+    },
 
     /**
      * Opera default driver.

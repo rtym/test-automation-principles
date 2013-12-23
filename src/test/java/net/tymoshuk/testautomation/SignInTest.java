@@ -1,5 +1,6 @@
 package net.tymoshuk.testautomation;
 
+import net.tymoshuk.testautomation.pages.dashboard.DashboardPage;
 import net.tymoshuk.testautomation.pages.login.LoginPage;
 import net.tymoshuk.testautomation.utils.Session;
 import net.tymoshuk.testautomation.utils.User;
@@ -13,7 +14,7 @@ import org.junit.Test;
  *
  * @author roman@tymoshuk.net
  */
-public class LoginPageTest
+public class SignInTest
 {
     private static LoginPage loginPage;
 
@@ -47,7 +48,9 @@ public class LoginPageTest
             this.setPassword("rtym");
         }};
 
-        assert loginPage.loginWithCorrectCredentials(user, false).isActive();
+        DashboardPage dashboardPage = loginPage.loginWithCorrectCredentials(user, false);
+
+        assert dashboardPage.isActive();
     }
 
     @Test

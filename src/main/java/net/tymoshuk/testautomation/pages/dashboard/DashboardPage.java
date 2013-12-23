@@ -4,6 +4,7 @@ import net.tymoshuk.testautomation.pages.Page;
 import net.tymoshuk.testautomation.pages.login.LoginPage;
 import net.tymoshuk.testautomation.utils.locators.By;
 import net.tymoshuk.testautomation.utils.selenium.Selenium;
+import org.openqa.selenium.WebElement;
 
 /**
  * Dashboard page.
@@ -45,6 +46,7 @@ public class DashboardPage extends Page
 
     public LoginPage logout()
     {
+        this.getSelenium().mouseOver(By.id("wp-admin-bar-my-account"));
         this.getSelenium().click(By.id("wp-admin-bar-logout"));
 
         return new LoginPage(this.getSelenium());

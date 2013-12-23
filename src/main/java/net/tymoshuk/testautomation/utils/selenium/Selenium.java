@@ -27,6 +27,13 @@ public interface Selenium extends com.thoughtworks.selenium.Selenium
     void click(final Locatable locator);
 
     /**
+     * Simulates a user hovering a mouse over the specified element.
+     *
+     * @param locator BY locator
+     */
+    void mouseOver(final Locatable locator);
+
+    /**
      * Sets the value of an input field, as though you typed it in.
      *
      * <p>
